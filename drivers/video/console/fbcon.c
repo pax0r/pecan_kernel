@@ -1831,6 +1831,7 @@ static int fbcon_scroll(struct vc_data *vc, int t, int b, int dir,
 	 * ++Andrew: Only use ypan on hardware text mode when scrolling the
 	 *           whole screen (prevents flicker).
 	 */
+    info->flags |= FBINFO_READS_FAST;
 
 	switch (dir) {
 	case SM_UP:
