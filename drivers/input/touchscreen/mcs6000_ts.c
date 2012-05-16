@@ -154,7 +154,7 @@ void Send_Touch( unsigned int x, unsigned int y)
 	input_report_abs(mcs6000_ts_dev.input_dev, ABS_MT_POSITION_Y, y);
 	input_mt_sync(mcs6000_ts_dev.input_dev);
 	input_sync(mcs6000_ts_dev.input_dev);
-	
+
 	input_report_abs(mcs6000_ts_dev.input_dev, ABS_MT_TOUCH_MAJOR, 0);
 	input_report_abs(mcs6000_ts_dev.input_dev, ABS_MT_POSITION_X, x);
 	input_report_abs(mcs6000_ts_dev.input_dev, ABS_MT_POSITION_Y, y);
@@ -1051,7 +1051,7 @@ static void mcs6000_late_resume(struct early_suspend * h)
 	{
 		int i;
 		struct irq_desc *desc = irq_to_desc(dev->num_irq);	
-		
+
 		DMSG(KERN_INFO"%s: start! \n", __FUNCTION__);
 		mcs6000_ts_on();
 		for(i=0; i<desc->depth; i++)
@@ -1160,7 +1160,7 @@ static void __exit mcs6000_ts_exit(void)
 {
 	struct mcs6000_ts_device *dev;
 	dev = &mcs6000_ts_dev;
-	
+
 	mcs6000_remove_file(mcs6000_ts_input);
 	i2c_del_driver(&mcs6000_i2c_ts_driver);
 	input_unregister_device(mcs6000_ts_input);
